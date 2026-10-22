@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101116">
+<title>Portofolio | Putri Agta Septiani</title>
+<style>
+:root{
+  --bg:#101116; --panel:#191a22; --panel2:#20212b; --red:#f04452;
+  --red-dark:#bd2637; --text:#f5f5f7; --muted:#b7b8c4; --line:#343540;
+  --blue:#293b60; --radius:22px; --shadow:0 18px 55px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(16,17,22,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:850;letter-spacing:.3px;font-size:1.08rem}
+.brand span{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:22px;color:var(--muted);font-size:.92rem}
+.nav-links a:hover,.nav-links a:focus{color:#fff}
+.menu-toggle{display:none;background:var(--panel2);border:1px solid var(--line);color:white;padding:8px 12px;border-radius:10px}
+.hero{padding:78px 0 66px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;width:440px;height:440px;right:-140px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(240,68,82,.2),transparent 68%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#ff9aa2;background:rgba(240,68,82,.1);border:1px solid rgba(240,68,82,.25);border-radius:999px;padding:7px 13px;font-size:.82rem;font-weight:700}
+.eyebrow:before{content:"";width:7px;height:7px;background:var(--red);border-radius:50%}
+h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.06;letter-spacing:-2px;margin:22px 0 18px}
+h1 span{color:var(--red)}
+.hero p{color:var(--muted);max-width:590px;font-size:1.05rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border-radius:12px;padding:12px 18px;font-weight:750;border:1px solid transparent;transition:.2s}
+.btn-primary{background:var(--red);color:white;box-shadow:0 9px 25px rgba(240,68,82,.2)}
+.btn-primary:hover{background:#ff5966;transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);background:var(--panel);color:var(--text)}
+.btn-ghost:hover{border-color:var(--red)}
+.photo-wrap{position:relative;max-width:370px;margin:auto;width:100%}
+.photo-frame{aspect-ratio:4/5;border:1px solid rgba(240,68,82,.55);border-radius:30px;padding:12px;background:linear-gradient(145deg,rgba(240,68,82,.22),rgba(41,59,96,.16));box-shadow:var(--shadow);position:relative}
+.photo-placeholder{height:100%;width:100%;border-radius:21px;overflow:hidden;background:linear-gradient(145deg,#252733,#171820);display:flex;align-items:center;justify-content:center;position:relative}
+.photo-placeholder img{width:100%;height:100%;object-fit:cover;display:none}
+.photo-placeholder.has-image img{display:block}
+.photo-empty{text-align:center;padding:25px;color:var(--muted)}
+.photo-empty .camera{width:70px;height:70px;border-radius:22px;background:rgba(240,68,82,.13);display:grid;place-items:center;margin:0 auto 16px;color:#ff9aa2;font-size:2rem}
+.photo-empty strong{display:block;color:#fff;font-size:1.1rem}
+.photo-empty small{display:block;margin-top:7px}
+.photo-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.photo-actions button{border:1px solid var(--line);background:var(--panel);color:#fff;border-radius:10px;padding:9px 12px;font-size:.85rem}
+.photo-actions button:hover{border-color:var(--red)}
+.photo-note{font-size:.78rem;color:var(--muted);text-align:center;margin:8px 0 0}
+.floating-tag{position:absolute;right:-20px;bottom:42px;background:#20212b;border:1px solid var(--line);border-radius:15px;padding:12px 16px;box-shadow:var(--shadow);font-size:.86rem}
+.floating-tag b{display:block;color:#fff}.floating-tag span{color:var(--muted)}
+section{padding:70px 0}
+.section-head{margin-bottom:28px}
+.kicker{color:var(--red);font-size:.78rem;font-weight:850;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.2;margin:7px 0 10px;letter-spacing:-.7px}
+.section-head p,.muted{color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:25px}
+.card h3{margin:0 0 16px;font-size:1.12rem}
+.profile-list{display:grid;gap:12px}
+.profile-row{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.profile-row:last-child{border-bottom:0;padding-bottom:0}
+.profile-row span:first-child{color:var(--muted)}
+.profile-row span:last-child{text-align:right;font-weight:650}
+.traits{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.trait{background:var(--panel2);border-radius:15px;padding:16px}
+.trait .emoji{font-size:1.35rem}
+.trait strong{display:block;margin:5px 0}
+.trait p{color:var(--muted);font-size:.9rem;margin:0}
+.education{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.edu-card{position:relative;overflow:hidden}
+.edu-card:before{content:"";position:absolute;width:90px;height:90px;right:-35px;top:-35px;border-radius:50%;background:rgba(240,68,82,.12)}
+.edu-year{font-size:.8rem;color:#ff9aa2;font-weight:800}
+.edu-card h3{margin:8px 0 4px}
+.edu-card p{margin:0;color:var(--muted);font-size:.92rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chip-list{display:flex;flex-wrap:wrap;gap:9px}
+.chip{border:1px solid var(--line);background:var(--panel2);padding:8px 12px;border-radius:999px;color:#e8e8ee;font-size:.9rem}
+.chip.red{border-color:rgba(240,68,82,.4);background:rgba(240,68,82,.1);color:#ffb0b6}
+.hobby-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hobby-card{transition:transform .22s,border-color .22s}
+.hobby-card:hover{transform:translateY(-5px);border-color:rgba(240,68,82,.6)}
+.hobby-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(240,68,82,.12);font-size:1.55rem;margin-bottom:14px}
+.hobby-card p{color:var(--muted);margin-bottom:0;font-size:.94rem}
+.dream{background:linear-gradient(125deg,rgba(240,68,82,.13),rgba(41,59,96,.23)),var(--panel);border:1px solid rgba(240,68,82,.25);border-radius:28px;padding:clamp(25px,5vw,48px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.dream blockquote{margin:15px 0 0;padding-left:17px;border-left:3px solid var(--red);font-size:1.05rem;color:#e7e7ed}
+.dream-mark{font-size:4rem;opacity:.9}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-item{display:flex;align-items:center;gap:13px;padding:15px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);min-width:0}
+.contact-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;background:rgba(240,68,82,.12);border-radius:12px}
+.contact-item small{display:block;color:var(--muted)}
+.contact-item strong{display:block;overflow-wrap:anywhere;font-size:.93rem}
+.copy-btn{margin-left:auto;background:transparent;color:#ff9aa2;border:0;font-size:.8rem}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.88rem}
+.footer-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.top-btn{position:fixed;right:20px;bottom:20px;z-index:8;width:46px;height:46px;border:0;border-radius:14px;background:var(--red);color:white;font-size:1.2rem;box-shadow:0 8px 22px rgba(0,0,0,.25);opacity:0;pointer-events:none;transform:translateY(10px);transition:.2s}
+.top-btn.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+:focus-visible{outline:3px solid #ff9aa2;outline-offset:3px}
+@media(max-width:780px){
+ .hero{padding:55px 0 45px}.hero-grid,.about-grid,.two-col,.contact-grid{grid-template-columns:1fr}
+ .hero-grid{gap:36px}.hero-copy{text-align:center}.hero-copy p{margin-inline:auto}.actions{justify-content:center}
+ .photo-wrap{max-width:300px}.floating-tag{right:-8px}
+ .education{grid-template-columns:1fr}.hobby-grid{grid-template-columns:1fr}.nav-links{display:none;position:absolute;top:71px;left:0;right:0;background:#15161d;border-bottom:1px solid var(--line);padding:18px 5%;flex-direction:column;align-items:stretch;gap:12px}
+ .nav-links.open{display:flex}.nav-links a{padding:7px 0}.menu-toggle{display:block}
+ section{padding:54px 0}.traits{grid-template-columns:1fr 1fr}.dream{grid-template-columns:1fr}.dream-mark{display:none}
+}
+@media(max-width:420px){.traits{grid-template-columns:1fr}.profile-row{font-size:.9rem}.profile-row span:last-child{max-width:60%}.card{padding:19px}.floating-tag{font-size:.75rem;padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#beranda" aria-label="Portofolio Putri - beranda">PUTRI<span>.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a><a href="#tentang">Tentang Saya</a><a href="#pendidikan">Pendidikan</a><a href="#minat">Minat & Hobi</a><a href="#mimpi">Mimpi</a><a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="beranda">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">PORTOFOLIO PRIBADI · SISWI SMA</div>
+      <h1>Hai, aku <span>Putri Agta</span> Septiani.</h1>
+      <p>Selamat datang di ruang kecilku! Aku siswi kelas X-K di SMA Negeri 19 Bandung. Aku senang memasak, menggambar, dan bermain badminton, serta terus belajar untuk meraih cita-cita.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#tentang">Kenali Aku <span aria-hidden="true">↘</span></a>
+        <a class="btn btn-ghost" href="#kontak">Hubungi Aku</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="photo-wrap">
+        <div class="photo-frame">
+          <div class="photo-placeholder" id="photoBox">
+            <img id="profileImage" alt="Foto profil Putri Agta Septiani">
+            <div class="photo-empty" id="photoEmpty">
+              <div class="camera" aria-hidden="true">＋</div>
+              <strong>Foto Profil Putri</strong>
+              <small>Tempat untuk memasang foto<br>potret atau foto setengah badan</small>
+            </div>
+          </div>
+        </div>
+        <div class="floating-tag"><b>Terus bertumbuh ✨</b><span>Belajar · Berkarya · Bermimpi</span></div>
+      </div>
+      <div class="photo-actions">
+        <button type="button" id="uploadBtn">＋ Tambahkan Foto</button>
+        <button type="button" id="removeBtn" hidden>Hapus Foto</button>
+        <input type="file" id="photoInput" accept="image/*" hidden>
+      </div>
+      <p class="photo-note">Pilih foto dari perangkatmu. Foto hanya tampil di halaman ini.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tentang">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">01 · Tentang aku</div><h2>Kenalan lebih dekat</h2><p>Hal sederhana tentang diriku, hal yang sedang kupelajari, dan kepribadianku.</p></div>
+    <div class="about-grid">
+      <article class="card reveal">
+        <h3>Profil Pribadi</h3>
+        <div class="profile-list">
+          <div class="profile-row"><span>Nama lengkap</span><span>Putri Agta Septiani</span></div>
+          <div class="profile-row"><span>Nama panggilan</span><span>Putri</span></div>
+          <div class="profile-row"><span>Tempat, tanggal lahir</span><span>Bandung, 12 September 2010</span></div>
+          <div class="profile-row"><span>Sekolah</span><span>SMA Negeri 19 Bandung</span></div>
+          <div class="profile-row"><span>Kelas</span><span>X-K</span></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <h3>Kepribadianku</h3>
+        <div class="traits">
+          <div class="trait"><div class="emoji">💗</div><strong>Kelebihan</strong><p>Jujur, disiplin, sabar, bertanggung jawab, dan peduli terhadap sesama.</p></div>
+          <div class="trait"><div class="emoji">🌱</div><strong>Terus belajar</strong><p>Belajar mengatur waktu dan meningkatkan kemampuan dalam pelajaran tertentu.</p></div>
+          <div class="trait"><div class="emoji">🌷</div><strong>Hal yang dilatih</strong><p>Lebih percaya diri saat berbicara di depan umum, bertemu orang baru, dan menyampaikan pendapat.</p></div>
+          <div class="trait"><div class="emoji">🤝</div><strong>Langkah kecil</strong><p>Berlatih sedikit demi sedikit, berani mencoba, dan terbuka pada masukan.</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="pendidikan">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">02 · Perjalanan belajar</div><h2>Pendidikanku</h2><p>Setiap tahap menjadi kesempatan untuk belajar dan berkembang.</p></div>
+    <div class="education">
+      <article class="card edu-card reveal"><div class="edu-year">2017 — 2023</div><h3>SDN 024 Coblong</h3><p>Pendidikan dasar</p></article>
+      <article class="card edu-card reveal"><div class="edu-year">2023 — 2026</div><h3>SMP Al-Falah Dago Bandung</h3><p>Pendidikan menengah pertama</p></article>
+      <article class="card edu-card reveal"><div class="edu-year">2026 — Sekarang</div><h3>SMA Negeri 19 Bandung</h3><p>Kelas X-K · Terus berkembang</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="minat">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">03 · Hal favoritku</div><h2>Minat, hobi, dan keahlian</h2><p>Aktivitas yang kusukai dan ingin terus kukembangkan.</p></div>
+    <div class="hobby-grid">
+      <article class="card hobby-card reveal"><div class="hobby-icon" aria-hidden="true">🍳</div><h3>Memasak</h3><p>Suka mencoba resep baru, mengenal rasa, dan belajar membuat hidangan yang enak.</p></article>
+      <article class="card hobby-card reveal"><div class="hobby-icon" aria-hidden="true">🎨</div><h3>Menggambar</h3><p>Senang menggambar pemandangan atau karakter kartun untuk mengekspresikan kreativitas.</p></article>
+      <article class="card hobby-card reveal"><div class="hobby-icon" aria-hidden="true">🏸</div><h3>Badminton</h3><p>Suka bermain badminton bersama teman saat waktu luang sambil menjaga semangat dan kekompakan.</p></article>
+    </div>
+    <div class="two-col" style="margin-top:20px">
+      <article class="card reveal"><h3>Hal-hal yang kusukai</h3><p class="muted">Makanan favorit</p><div class="chip-list"><span class="chip red">🍗 Ayam goreng</span></div><p class="muted" style="margin-top:18px">Warna favorit</p><div class="chip-list"><span class="chip"><span style="color:#8ca7dd">●</span> Biru tua</span><span class="chip"><span style="color:#a6a7b1">●</span> Abu-abu</span></div></article>
+      <article class="card reveal"><h3>Pelajaran favorit</h3><p class="muted">Mata pelajaran yang menarik minatku:</p><div class="chip-list"><span class="chip red">Ekonomi</span><span class="chip red">Sejarah</span><span class="chip red">Seni Rupa</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="mimpi">
+  <div class="container">
+    <div class="dream reveal">
+      <div><div class="kicker">04 · Masa depan</div><h2>Mimpi besarku</h2>
+        <p class="muted">Saya ingin menjadi pengusaha yang sukses agar bisa membuka usaha sendiri dan membantu banyak orang. Saya akan belajar dengan giat, bekerja keras, dan tidak mudah menyerah untuk mewujudkan mimpi tersebut.</p>
+        <blockquote>“Terus berusaha dan pantang menyerah, karena usaha tidak akan mengkhianati hasil.”</blockquote>
+      </div>
+      <div class="dream-mark" aria-hidden="true">✦</div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="container">
+    <div class="section-head reveal"><div class="kicker">05 · Sapa aku</div><h2>Kontak</h2><p>Temukan aku melalui akun berikut.</p></div>
+    <div class="contact-grid">
+      <div class="contact-item reveal"><div class="contact-icon">◎</div><div><small>Instagram</small><strong>@lowllyhu520</strong></div><button class="copy-btn" data-copy="@lowllyhu520">Salin</button></div>
+      <div class="contact-item reveal"><div class="contact-icon">♪</div><div><small>TikTok</small><strong>@yputr12</strong></div><button class="copy-btn" data-copy="@yputr12">Salin</button></div>
+      <div class="contact-item reveal"><div class="contact-icon">✉</div><div><small>Email</small><strong>putriagta4@gmail.com</strong></div><button class="copy-btn" data-copy="putriagta4@gmail.com">Salin</button></div>
+      <div class="contact-item reveal"><div class="contact-icon">♡</div><div><small>Pesan untuk diri sendiri</small><strong>Jangan berhenti berkembang.</strong></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><span>© <span id="year"></span> Putri Agta Septiani</span><span>Dibuat dengan semangat belajar ♡</span></div></footer>
+<button class="top-btn" id="topBtn" aria-label="Kembali ke atas" title="Kembali ke atas">↑</button>
+<div id="toast" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#252631;border:1px solid #454653;color:#fff;padding:10px 16px;border-radius:12px;z-index:20;transition:.2s">Tersalin!</div>
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? '✕ Tutup' : '☰ Menu';
+});
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.textContent = '☰ Menu';
+}));
+
+const photoInput = document.getElementById('photoInput');
+const profileImage = document.getElementById('profileImage');
+const photoBox = document.getElementById('photoBox');
+const photoEmpty = document.getElementById('photoEmpty');
+const removeBtn = document.getElementById('removeBtn');
+let photoUrl = null;
+document.getElementById('uploadBtn').addEventListener('click', () => photoInput.click());
+photoInput.addEventListener('change', event => {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { showToast('Pilih file gambar ya.'); return; }
+  if (file.size > 10 * 1024 * 1024) { showToast('Ukuran foto maksimal 10 MB.'); return; }
+  if (photoUrl) URL.revokeObjectURL(photoUrl);
+  photoUrl = URL.createObjectURL(file);
+  profileImage.src = photoUrl;
+  photoBox.classList.add('has-image');
+  photoEmpty.hidden = true;
+  removeBtn.hidden = false;
+});
+removeBtn.addEventListener('click', () => {
+  profileImage.removeAttribute('src');
+  photoBox.classList.remove('has-image');
+  photoEmpty.hidden = false;
+  photoInput.value = '';
+  removeBtn.hidden = true;
+  if (photoUrl) URL.revokeObjectURL(photoUrl);
+  photoUrl = null;
+});
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.style.opacity = '1';
+  toast.style.transform = 'tran
